@@ -18,7 +18,7 @@ class String_calc {
         {
           negative.add(num_tmp);
         }
-        else{
+        else if(num_tmp < 1000){
           sum = sum + num_tmp;
         }
       }
