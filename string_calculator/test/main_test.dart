@@ -15,8 +15,13 @@ void main(){
     });
     test('3 num',(){
       final obj = String_calc();
-      int val = obj.Add("2,5,6");
-      expect(val,13);
+      int val = obj.Add("1\n2,3");
+      expect(val,6);
+    });
+    test('extra',(){
+      final obj = String_calc();
+      int val = obj.Add("//;\n1;2");
+      expect(val,3);
     });
   });
 }
