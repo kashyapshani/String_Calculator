@@ -3,7 +3,7 @@ class String_calc{
 
   int Add(String numbers) {
     int sum = 0,num_tmp;
-    String input = numbers;
+    String input = numbers.replaceAll("\n",",");
     if (input.isEmpty) {
       return 0;
     }
