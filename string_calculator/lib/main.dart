@@ -2,14 +2,17 @@
 class String_calc{
 
   int Add(String numbers){
-    int sum=0;
+    int sum=0,num_tmp;
     String input = numbers;
     if(input.isEmpty){
         return 0;
     }
+    else if(input.length==1){
+      num_tmp = int.parse(input);
+      return num_tmp;
+    }
     else if(input.contains(",")){
       List<String> num = input.split(",");
-      int num_tmp;
       print(num);
       for(int i = 0;i<num.length;i++){
           num_tmp = int.parse(num[i]);
