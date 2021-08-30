@@ -1,18 +1,32 @@
 
+class NegativeException implements Exception {
+    NegativeException(List<int> num)
+    {
+      print("Negatives not Allowed");
+      print(num);
+    }
+}
 class String_calc {
-
   int calc(String delimiter, String input) {
     int sum = 0, num_tmp;
+    List<String> num = input.split(delimiter);
+    List<int> negative = new List();
     try {
-      List<String> num = input.split(delimiter);
-      print(num);
       for (int i = 0; i < num.length; i++) {
         num_tmp = int.parse(num[i]);
-        sum = sum + num_tmp;
+        if(num_tmp < 0)
+        {
+          negative.add(num_tmp);
+        }
+        else{
+          sum = sum + num_tmp;
+        }
+      }
+      if(negative.length>0){                  
+         throw NegativeException(negative);
       }
     }
     catch (e) {
-      print(e);
     }
     return sum;
   }
@@ -45,7 +59,7 @@ class String_calc {
 }
 
 void main(){
-  String s = "1,2,3";
+  String s = "//;\n1;2;-3";
   String_calc sc = new String_calc();
   int res = sc.Add(s);
   print(res);
